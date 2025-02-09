@@ -21,10 +21,7 @@ const RegisterTab = () => {
 
     const userRegisterDTO = Yup.object({
         fullName: Yup.string()
-            .matches(
-                /^([A-Za-z]+(?:\s[A-Za-z]+){1,2})$/,
-                "Full name must contain at least a first name and last name, and can optionally include a middle name. Only letters are allowed."
-            )
+            .matches(/^([A-Za-z]+(?:\s[A-Za-z]+){1,2})$/, "Full name must contain at least a first name and last name, or a middle name.")
             .required("Full name is required."),
         email: Yup.string().email().required("Email is required."),
         password: Yup.string().required("Password is required."),
